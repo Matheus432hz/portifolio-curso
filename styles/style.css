@@ -244,3 +244,10 @@ main {
     z-index: 3; /* Se quiser que apareça na frente da foto, use maior que 2 */
     /* Ajuste conforme seu layout */
 }
+
+
+@media (max-width: 1200px) {
+    main {
+        flex-direction: column-reverse;
+    }
+}
