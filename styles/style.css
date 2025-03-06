@@ -49,7 +49,7 @@ main {
 /* Estilo dos links do menu */
 .cabecalho__menu__link {
     font-family: var(--MONT-fonte-secundaria);  /* Usa fonte Montserrat */
-    font-size: 24px;            /* Tamanho da fonte */
+    font-size: 1.5rem;            /* Tamanho da fonte */
     font-weight: 600;           /* Peso da fonte (semi-negrito) */
     color: var(--cor-secundaria); /* Cor texto branca por padrão */
     text-decoration: none;       /* Remove sublinhado dos links */
@@ -99,7 +99,7 @@ main {
 
 /* Estilo do título da apresentação */
 .apresentacao__conteudo__titulo {
-    font-size: 36px;            /* Tamanho da fonte */
+    font-size: 2.25rem;            /* Tamanho da fonte */
     font-family: var(--KRONA-fonte-principal);  /* Usa fonte Krona One */
 }
 
@@ -110,7 +110,7 @@ main {
 
 /* Estilo do texto da apresentação */
 .apresentacao__conteudo__texto {
-    font-size: 24px;            /* Tamanho da fonte */
+    font-size: 1.5rem;            /* Tamanho da fonte */
     font-family: var(--MONT-fonte-secundaria);  /* Usa fonte Montserrat */
 } 
 
@@ -127,7 +127,7 @@ main {
 .apresentacao__links__subtitulo {
     font-family: var(--KRONA-fonte-principal);  /* Usa fonte Krona One */
     font-weight: 400;           /* Peso da fonte (regular) */
-    font-size: 24px;            /* Tamanho da fonte */
+    font-size: 1.5rem;            /* Tamanho da fonte */
 }
 
 /* Estilo dos botões de links */
@@ -139,7 +139,7 @@ main {
     width: 378px;               /* Largura fixa */
     text-align: center;         /* Centraliza o texto */
     border-radius: 8px;         /* Cantos arredondados */
-    font-size: 24px;            /* Tamanho da fonte */
+    font-size: 1.5rem;            /* Tamanho da fonte */
     font-weight: 600;           /* Peso da fonte (semi-negrito) */
     padding: 21.5px 0;          /* Espaçamento interno vertical */
     text-decoration: none;      /* Remove sublinhado dos links */
@@ -171,10 +171,76 @@ main {
 /* Estilo do rodapé */
 .rodape {
     color: var(--cor-primaria);      /* Cor do texto (preto) */
-    background-color: var(--cor-primaria);  /* Fundo preto */
+    background-color: var(--cor-terciaria);  /* Fundo azul */
     padding: 24px;                   /* Espaçamento interno */
     text-align: center;              /* Centraliza o texto */
     width: 100%;                     /* Largura total */
     font-family: var(--MONT-fonte-secundaria);  /* Usa fonte Montserrat */
-    font-size: 24px;                 /* Tamanho da fonte */
+    font-size: 1.5rem;                 /* Tamanho da fonte */
+}
+
+
+/* ============================= */
+/*    POSICIONAMENTO DOS SVGs    */
+/* ============================= */
+
+
+.apresentacao__imagem {
+    /* Div que contém a imagem e os SVGs */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-container {
+    position: relative; 
+    display: inline-block; /* Para que a largura se ajuste ao conteúdo */
+}
+
+
+/* A imagem principal */
+.minha-foto {
+    position: relative;
+    z-index: 2; /* Fica acima do retângulo */
+    width: 459px; /* Ajuste conforme necessário */
+    border-radius: 8px; /* Se quiser cantos arredondados */
+}
+
+/* SVGs decorativos */
+.decor-rectangle,
+.decor-lines,
+.decor-star {
+    position: absolute;
+    color: var(--cor-terciaria); 
+    z-index: 1; /* Ficam atrás ou abaixo da foto */
+}
+
+/* Retângulo */
+.decor-rectangle {
+    top: -20px;
+    left: 10px;
+    /* Ajuste conforme seu layout no Figma */
+}
+
+/* Linhas */
+.decor-lines1 {
+    bottom: 130px;
+    right: 50px;
+    z-index: 3;
+    /* Ajuste conforme seu layout */
+}
+
+.decor-lines2 {
+    top: 450px;
+    right: 50px;
+    z-index: 3; 
+    /* Ajuste conforme seu layout */
+}
+
+/* Estrela */
+.decor-star {
+    top: 175px;
+    left: 390px;
+    z-index: 3; /* Se quiser que apareça na frente da foto, use maior que 2 */
+    /* Ajuste conforme seu layout */
 }
