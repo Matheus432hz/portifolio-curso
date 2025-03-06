@@ -3,21 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculo desafio criar do zero</title>
+    <title>Em Desenvolvimento</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        .jogo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 80vh;
+            padding: 2rem;
+            background: #ffffff;
+        }
+
+        .erro-icone {
+            font-size: 8rem;
+            color: #ff6347;
+            margin: 2rem 0;
+        }
+
+        .contador {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #006b20;
+            margin: 2rem 0;
+        }
+
+        .botao-clique {
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .botao-clique:active {
+            transform: scale(0.95);
+        }
+
+        .progresso {
+            width: 100%;
+            background: #ddd;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .progresso-barra {
+            height: 20px;
+            background: #76d7c4;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .elementos-curriculo {
+            text-align: center;
+            color: #006b20;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .mostrar {
+            display: block;
+            animation: fadeIn 1s;
+        }
+
+        .mudarcor {
+            color: #000000;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
     <header class="cabecalho">
         <nav class="cabecalho__menu">
             <a class="cabecalho__menu__link" href="index.html">Home</a> 
             <a class="cabecalho__menu__link" href="about.html">Sobre mim</a>
-            <a class="cabecalho__menu__link" href="curriculo.html">Curriculo</a>
-            <a class="cabecalho__menu__link ativo" href="portifolio.html">Curriculo</a>
+            <a class="cabecalho__menu__link " href="curriculo.html">Curriculo</a>
+            <a class="cabecalho__menu__link ativo" href="portifolio.html">Portfólio</a>
          </nav>
     </header>
-    <main></main>
+    <main class="jogo-container">
+        <div class="erro-icone">⚠️</div>
+        <h2 class="mudarcor">Página em construção!</h2>
+        <p class="mudarcor">Clique no botão para "consertar" a página:</p>
+        <div class="contador">Erros coletados: <span id="contador">0</span></div>
+        
+        <button class="botao-clique" onclick="clique()">GERAR ERRO 404</button>
+        
+        <div class="progresso">
+            <div class="progresso-barra" id="progresso"></div>
+        </div>
+
+        <!-- Elementos do currículo -->
+        <div class="elementos-curriculo">
+            <h3>Hard Skills</h3>
+            <ul class="oculto" data-passo="1">
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+            </ul>
+            
+            <h3>Soft Skills</h3>
+            <ul class="oculto" data-passo="2">
+                <li>Comunicação</li>
+                <li>Trabalho em equipe</li>
+                <li>Proatividade</li>
+            </ul>
+
+            <h3>Projetos</h3>
+            <ul class="oculto" data-passo="3">
+                <li>Site Pessoal</li>
+                <li>Aplicativo X</li>
+                <li>API Y</li>
+            </ul>
+        </div>
+    </main>
     <footer class="rodape">
         <p>Desenvolvido por Matheus.</p>
     </footer>
+
+    <script>
+        let errosColetados = 0;
+        const totalPassos = 3;
+        const barraProgresso = document.getElementById('progresso');
+        const elementosCurriculo = document.querySelectorAll('[data-passo]');
+
+        function clique() {
+            errosColetados++;
+            document.getElementById('contador').textContent = errosColetados;
+            
+            // Progresso para desbloquear elementos
+            const passoS = errosColetados / 10;
+            barraProgresso.style.width = `${Math.min(passoS * (100/totalPassos), 100)}%`;
+            
+            // Desbloquear elementos
+            elementosCurriculo.forEach(elemento => {
+                const passoAtual = parseInt(elemento.dataset.passo);
+                if(errosColetados >= passoAtual * 10) {
+                    elemento.classList.add('mostrar');
+                }
+            });
+        }
+
+        // Clique animado
+        document.querySelector('.botao-clique').addEventListener('click', function(e) {
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+        });
+    </script>
 </body>
 </html>
