@@ -13,9 +13,7 @@ body {
     color: #F6F6F6;
 }
 
-.titulo-destaque {
-    color: #22D4FD;
-}
+
 
 /* Conteúdo principal - ocupa espaço disponível */
 main {
@@ -25,10 +23,31 @@ main {
     align-items: center;
 }
 
+.cabecalho {
+    padding: 5%;
+}
+
+.cabecalho__menu {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    
+}
+
+
+.cabecalho__menu__link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #22D4FD;
+    text-decoration: none;
+}
+
 .apresentacao {
     display: flex;
     align-items: center;
     gap: 80px;
+    padding: 5%;
 }
 
 .apresentacao__conteudo {
@@ -41,6 +60,10 @@ main {
 .apresentacao__conteudo__titulo {
     font-size: 36px;
     font-family: 'krona One', sans-serif;
+}
+
+.titulo-destaque {
+    color: #22D4FD;
 }
 
 .apresentacao__conteudo__texto {
