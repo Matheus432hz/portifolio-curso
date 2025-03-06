@@ -1,121 +1,180 @@
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #000000;     /* Cor de fundo principal (preto) */
+    --cor-secundaria: #F6F6F6;   /* Cor do texto principal (branco) */
+    --cor-terciaria: #22D4FD;    /* Cor de destaque (azul) */
+    --cor-hover: #272727;        /* Cor de fundo ao passar o mouse (cinza escuro) */
+
+    --KRONA-fonte-principal: 'krona One', sans-serif;    /* Fonte para títulos */
+    --MONT-fonte-secundaria: 'Montserrat', sans-serif;   /* Fonte para textos */
+}
+
+/* Reset de propriedades básicas para todos os elementos */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;         /* Remove as margens */
+    padding: 0;        /* Remove os espaçamentos internos */
+    box-sizing: border-box;  /* Inclui padding e borda na largura/altura total */
 }
 
+/* Estilo do corpo da página */
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column; /* Importante para empilhar os elementos */
-    background-color: black;
-    color: #F6F6F6;
+    min-height: 100vh;         /* Altura mínima de 100% da viewport */
+    display: flex;             /* Usa flexbox para layout */
+    flex-direction: column;    /* Elementos empilhados verticalmente */
+    background-color: var(--cor-primaria);  /* Fundo preto */
+    color: var(--cor-secundaria);           /* Texto branco */
 }
 
-
-
-/* Conteúdo principal - ocupa espaço disponível */
+/* Estilo do conteúdo principal */
 main {
-    flex: 1; /* Faz com que o conteúdo principal ocupe todo o espaço disponível */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1;                    /* Ocupa todo espaço disponível */
+    display: flex;              /* Usa flexbox para layout */
+    justify-content: center;    /* Centraliza horizontalmente */
+    align-items: center;        /* Centraliza verticalmente */
 }
 
+/* Estilo do cabeçalho */
 .cabecalho {
-    padding: 5%;
+    padding: 5%;               /* Espaçamento interno de 5% */
 }
 
+/* Estilo do menu no cabeçalho */
 .cabecalho__menu {
-    display: flex;
-    gap: 80px;
-    justify-content: center;
-    
+    display: flex;             /* Usa flexbox para layout */
+    gap: 80px;                 /* Espaçamento entre itens */
+    justify-content: center;   /* Centraliza horizontalmente */
 }
 
-
+/* Estilo dos links do menu */
 .cabecalho__menu__link {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    color: #22D4FD;
-    text-decoration: none;
+    font-family: var(--MONT-fonte-secundaria);  /* Usa fonte Montserrat */
+    font-size: 24px;            /* Tamanho da fonte */
+    font-weight: 600;           /* Peso da fonte (semi-negrito) */
+    color: var(--cor-secundaria); /* Cor texto branca por padrão */
+    text-decoration: none;       /* Remove sublinhado dos links */
+    transition: color 0.3s;      /* Transição suave para a cor */
+    padding: 8px 16px;           /* Espaçamento interno para área de clique maior */
+    border-radius: 4px;          /* Cantos levemente arredondados */
+    position: relative;          /* Para posicionar elementos dentro dele */
 }
 
+/* Efeito hover para links do menu */
+.cabecalho__menu__link:hover {
+    color: var(--cor-terciaria);  /* Muda para azul ao passar o mouse */
+}
+
+/* Estilo para o link da página atual */
+.cabecalho__menu__link.ativo {
+    color: var(--cor-terciaria);  /* Texto azul para página ativa */
+    font-weight: 700;             /* Mais negrito para destacar */
+}
+
+/* Linha embaixo do link ativo */
+.cabecalho__menu__link.ativo::after {
+    content: '';                  /* Elemento vazio para a linha */
+    position: absolute;           /* Posicionamento absoluto */
+    bottom: 0;                    /* Alinhado na parte inferior */
+    left: 16px;                   /* Afastamento da esquerda */
+    right: 16px;                  /* Afastamento da direita */
+    height: 2px;                  /* Altura da linha */
+    background-color: var(--cor-terciaria); /* Cor azul para a linha */
+}
+
+/* Estilo da seção de apresentação */
 .apresentacao {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    padding: 5%;
+    display: flex;              /* Usa flexbox para layout */
+    align-items: center;        /* Alinha itens verticalmente ao centro */
+    gap: 80px;                  /* Espaçamento entre elementos */
+    padding: 5%;                /* Espaçamento interno */
 }
 
+/* Estilo do conteúdo da apresentação */
 .apresentacao__conteudo {
-    width: 615px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    width: 615px;               /* Largura fixa */
+    display: flex;              /* Usa flexbox para layout */
+    flex-direction: column;     /* Elementos empilhados verticalmente */
+    gap: 40px;                  /* Espaçamento entre elementos */
 }
 
+/* Estilo do título da apresentação */
 .apresentacao__conteudo__titulo {
-    font-size: 36px;
-    font-family: 'krona One', sans-serif;
+    font-size: 36px;            /* Tamanho da fonte */
+    font-family: var(--KRONA-fonte-principal);  /* Usa fonte Krona One */
 }
 
+/* Estilo de destaque no título */
 .titulo-destaque {
-    color: #22D4FD;
+    color: var(--cor-terciaria);  /* Texto azul */
 }
 
+/* Estilo do texto da apresentação */
 .apresentacao__conteudo__texto {
-    font-size: 24px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;            /* Tamanho da fonte */
+    font-family: var(--MONT-fonte-secundaria);  /* Usa fonte Montserrat */
 } 
 
+/* Estilo da seção de links */
 .apresentacao__links {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 32px;
+    display: flex;              /* Usa flexbox para layout */
+    flex-direction: column;     /* Elementos empilhados verticalmente */
+    justify-content: space-between;  /* Espaçamento uniforme entre itens */
+    align-items: center;        /* Centraliza horizontalmente */
+    gap: 32px;                  /* Espaçamento entre elementos */
 }
 
+/* Estilo do subtítulo da seção de links */
 .apresentacao__links__subtitulo {
-    font-family: 'Krona One', sans-serif;
-    font-weight: 400;
-    font-size: 24px;
+    font-family: var(--KRONA-fonte-principal);  /* Usa fonte Krona One */
+    font-weight: 400;           /* Peso da fonte (regular) */
+    font-size: 24px;            /* Tamanho da fonte */
 }
 
+/* Estilo dos botões de links */
 .apresentacao__links__botao {
-    display: flex;
-    justify-content: center; 
-    gap: 16px;
-    border: 2px solid #22D4FD;
-    width: 378px;
-    text-align: center;
-    border-radius: 8px;
-    font-size: 24px;
-    font-weight: 600;
-    padding: 21.5px 0;
-    text-decoration: none;
-    color: #F6F6F6;
-    font-family: 'Montserrat', sans-serif;
+    display: flex;              /* Usa flexbox para layout */
+    justify-content: center;    /* Centraliza horizontalmente */
+    gap: 16px;                  /* Espaçamento entre o ícone e o texto */
+    border: 2px solid var(--cor-terciaria);  /* Borda azul de 2px */
+    width: 378px;               /* Largura fixa */
+    text-align: center;         /* Centraliza o texto */
+    border-radius: 8px;         /* Cantos arredondados */
+    font-size: 24px;            /* Tamanho da fonte */
+    font-weight: 600;           /* Peso da fonte (semi-negrito) */
+    padding: 21.5px 0;          /* Espaçamento interno vertical */
+    text-decoration: none;      /* Remove sublinhado dos links */
+    color: var(--cor-secundaria); /* Texto branco */
+    font-family: var(--MONT-fonte-secundaria);  /* Usa fonte Montserrat */
+    transition: background-color 0.3s, color 0.3s;  /* Transição suave para cor e fundo */
 }
 
-.apresentacao__links__botao img {
-    height: 26px;
-    vertical-align: middle;
-}
-
+/* Estilo dos botões quando o mouse passa por cima */
 .apresentacao__links__botao:hover {
-    background-color: #272727;
+    background-color: var(--cor-hover);  /* Muda o fundo para cinza escuro */
+    color: var(--cor-terciaria);         /* Muda o texto para azul */
 }
 
+/* Estilo dos ícones SVG */
+.icon {
+    fill: var(--cor-secundaria);     /* Cor branca para o ícone */
+    transition: fill 0.3s;           /* Transição suave da cor */
+    height: 26px;                    /* Altura fixa */
+    width: 26px;                     /* Largura fixa */
+    vertical-align: middle;          /* Alinhamento vertical ao meio */
+}
+
+/* Estilo dos ícones quando o mouse passa por cima do botão */
+.apresentacao__links__botao:hover .icon {
+    fill: var(--cor-terciaria);      /* Muda a cor do ícone para azul */
+}
+
+/* Estilo do rodapé */
 .rodape {
-    color: black;
-    background-color: #22D4FD;
-    padding: 24px;
-    text-align: center;
-    width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
+    color: var(--cor-primaria);      /* Cor do texto (preto) */
+    background-color: var(--cor-primaria);  /* Fundo preto */
+    padding: 24px;                   /* Espaçamento interno */
+    text-align: center;              /* Centraliza o texto */
+    width: 100%;                     /* Largura total */
+    font-family: var(--MONT-fonte-secundaria);  /* Usa fonte Montserrat */
+    font-size: 24px;                 /* Tamanho da fonte */
 }
