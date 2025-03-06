@@ -2,6 +2,8 @@
 
 O Portfólio é uma aplicação web desenvolvida durante o curso de HTML e CSS da Alura. O objetivo do projeto é apresentar de forma interativa e visual os trabalhos e habilidades do desenvolvedor, permitindo que visitantes conheçam melhor o seu trabalho.
 
+##obs ainda tnho que atualizar linnks
+
 ## Tabela de Conteúdo
 - [Instalação](#instalação)
 - [Uso](#uso)
@@ -28,7 +30,7 @@ Sinta-se à vontade para compartilhar seu portfólio com amigos e potenciais emp
 ## Acesse o Portfólio
 Você também pode acessar o Portfólio diretamente em seu navegador, sem a necessidade de executá-lo localmente. O portfólio está hospedado no Vercel e pode ser acessado através do seguinte link:
 
-[Portfólio](https://.vercel.app/)  
+[Portfólio](https://portifolio-matheus-salla.vercel.app/)  
 
 ## Contribuição
 Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma nova issue ou enviar um pull request.
